@@ -1,4 +1,4 @@
-#MELODY Current Version is 3.0 
+#MELODY Current Version is 4.0 
 #Warning: For this code use Python version 3.13 and lower, cause of the library "pygame"!!! 
 import pygame
 import time
@@ -12,16 +12,14 @@ from openai import OpenAI
 import pyttsx3 
 import argparse
 import requests
+from transformers import pipeline 
+import torch 
+import accelerate
 v = "1"
 v_1 = "0"
-esp_address = "164.568.4.15"
+esp_address = "192.168.8.20"
 T = True 
 pygame.mixer.init()
-#CHAT-GPT:
-client = OpenAI (
-    base_url = "https://api.sambanova.ai/v1", 
-    api_key = "df4654626-9sdf4-789f54-954f-hf798456" #use sambanova instead of OpenRouter (blocked site for me)
-    )
 
 model = Model(r"D:\Voices\vosk-model-small-en-us-0.15")
 rec = KaldiRecognizer(model, 16000)
@@ -33,7 +31,14 @@ stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, fram
 stream.start_stream()
 
 
-
+model_id = "Qwen/Qwen2.5-1.5B-Instruct"
+pipe = pipeline(
+        "text-generation",
+        model = model_id,
+        torch_dtype = "auto",
+        device_map = "auto",
+        )
+print("Model has been downloaded successfuly")
 
 def google_search(query):
     search_url = f"https://www.google.com/search?q={query}"
@@ -118,22 +123,17 @@ def process_command(command):
     #CHAT-GPT:
     elif command.lower().startswith("melody"):
         p = command[7:].strip()
-        completion = client.chat.completions.create (
-            model = "DeepSeek-V3.1",
-            messages = [
-        {"role": "system", 
-         "content": "Speak like a friend" 
-         },                                 
-        {"role": "user",
-         "content": p
-         },
-      ],
-            )
+        messages = [{"role": "user", "content": p}]
+        outputs = pipe(messages, max_new_tokens = 200)
+        l = outputs[0]["generated_text"][-1]["content"]
+
         #TTS-model
+        l = l.replace('*', '')
+        l = l.strip()
         engine = pyttsx3.init()
         voices = engine.getProperty("voices")
         engine.setProperty("voice", voices[1].id)
-        engine.say(completion.choices[0].message.content)
+        engine.say(l)
         engine.runAndWait()
 
 def welcome(T):
