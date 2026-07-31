@@ -1,4 +1,4 @@
-#MELODY Current Version is 4.0 
+#MELODY Current Version is 5.0 
 #Warning: For this code use Python version 3.13 and lower, cause of the library "pygame"!!! 
 import pygame
 import time
