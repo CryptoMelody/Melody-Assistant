@@ -16,11 +16,11 @@ from transformers import pipeline
 import torch 
 import accelerate
 
-URL = 'http://127.0.0.1:"your port"'
+URL = 'http://<your IP address >:1793/generate'
 
 v = "1"
 v_1 = "0"
-esp_address = "142.175.2.548"
+esp_address = "<your esp address>"
 T = True 
 pygame.mixer.init()
 
