@@ -17,7 +17,7 @@ import torch
 import accelerate
 v = "1"
 v_1 = "0"
-esp_address = "192.168.8.20"
+esp_address = "<your esp address>"
 T = True 
 pygame.mixer.init()
 
