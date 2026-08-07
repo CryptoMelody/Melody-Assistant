@@ -16,11 +16,11 @@ from transformers import pipeline
 import torch 
 import accelerate
 from openai import OpenAI
-URL = "http://127.0.0.1:17493/generate"
+URL = "http://<your IP address>:17493/generate"
 
 v = "1"
 v_1 = "0"
-esp_address = "192.168.8.20"
+esp_address = "<your address of esp-server>"
 T = False
 pygame.mixer.init()
 
@@ -34,8 +34,8 @@ stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, fram
 stream.start_stream()
 
 client = OpenAI(
-    base_url = "https://api.ofox.ai/v1",
-    api_key = "sk-of-jgIZlWDdoyHBpqpuWQWsJignucqbuiWnRUgNjLjkqEsAQIosGpbQftNIMxpHdWyg",
+    base_url = "https://api.ofox.ai/v1", #use ofox.ai (espessialy for people in which country "openrouter" has been blocked )
+    api_key = "<your api key>",
     )
 def voice_box(text, voice_id):
     json_voice_box =  {
