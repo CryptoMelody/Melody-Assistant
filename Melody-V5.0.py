@@ -45,11 +45,19 @@ print("Model has been downloaded successfuly")
 
         
 def voice_box(text, voice_id):
-    json_voice_box = {
-        "text": text, 
-        "profile_id": voice_id,
-        "engine": "chatterbox-turbo",
-
+    json_voice_box =  {
+        "profile_id": voice_id,  # Передаем реальный ID голоса
+        "text": str(text),  # Передаем текст от Llama
+        "language": "en",  # Поменяйте на "ru", если Llama отвечает на русском
+        "seed": 0,
+        "model_size": "0.6B",
+        "instruct": "whisper",  # Оставляем пустым или пишем базовый стиль (например, "whisper")
+        "engine": "chatterbox",
+        "personality": False,  # В Python пишется с большой буквы — False
+        "max_chunk_chars": 800,
+        "crossfade_ms": 50,
+        "normalize": True,  # В Python пишется с большой буквы — True
+        "effects_chain": [],  # ИСПРАВЛЕНИЕ: Передаем пустой список, чтобы убрать ошибку валидации 422
     }
 
     try:
@@ -58,6 +66,7 @@ def voice_box(text, voice_id):
             print(f"Server's error: {t.status_code}")
     except Exception as e:
         print(f"Error: {e}")
+
 
        
 def google_search(query):
@@ -150,7 +159,7 @@ def process_command(command):
         #TTS-model
         l = l.replace('*', '')
         l = l.strip()
-        voice_box(l, "Jarvis")
+        voice_box(l, "<id of your Jarvis voice>")
 
     
         
