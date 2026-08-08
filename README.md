@@ -37,8 +37,6 @@ THIS LINES IN THE CODE RESPONSIBLE FOR REMOVING THE FIRST LETTERS AND SPACES:
 search - 6 letters, so that's why to remove this all word we have to write: **command[6:].strip()****
 
 
-
-
 ***FOR ESP32.ino code(connection):***
 
 **First connection** for those who just wanna check the work of the server: 
@@ -50,6 +48,8 @@ search - 6 letters, so that's why to remove this all word we have to write: **co
 <img width="1174" height="611" alt="Снимок экрана (121)" src="https://github.com/user-attachments/assets/8e5120ae-bb26-489f-8a4a-8eb08dc8d899" />
 
 
+
+
 **For people, who lives in another countries:**
 
 1. Find your index for pyttsx3 by running "For another language" code
@@ -57,3 +57,8 @@ search - 6 letters, so that's why to remove this all word we have to write: **co
 2. Change the index in Melody's system code
 
 3. ENJOY
+
+
+***BE CAREFUL WITH THE VOICEBOX, CAUSE IT CAN BE UNFRIENDLY FOR YOUR CPU:***
+
+<img width="762" height="472" alt="1" src="https://github.com/user-attachments/assets/bddfb50b-ef81-4d79-b0fb-eb7c578fbb8f" />
