@@ -38,6 +38,18 @@ search - 6 letters, so that's why to remove this all word we have to write: **co
 
 
 
+
+***FOR ESP32.ino code(connection):***
+
+**First connection** for those who just wanna check the work of the server: 
+
+<img width="801" height="743" alt="Снимок экрана (120)" src="https://github.com/user-attachments/assets/82787dc7-4225-4f93-b291-b8973d8986b2" />
+
+**The second one** is for those who can connect some different devices and control them in distance: 
+
+<img width="1174" height="611" alt="Снимок экрана (121)" src="https://github.com/user-attachments/assets/8e5120ae-bb26-489f-8a4a-8eb08dc8d899" />
+
+
 **For people, who lives in another countries:**
 
 1. Find your index for pyttsx3 by running "For another language" code
