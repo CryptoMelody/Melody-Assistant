@@ -10,7 +10,6 @@ All you have to do is:
 
 5.Finally you have to run it and enjoy.
 
-THAT'S FOR THE VERSION 1.0.
 
 ALL AUDIO IN THIS CODE IS ON RUSSIAN LANGUAGE!!! JUST REMEMBER THAT!
 
